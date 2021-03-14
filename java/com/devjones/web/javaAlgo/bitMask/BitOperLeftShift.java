@@ -1,4 +1,4 @@
-package com.devjones.web.javaAlgo;
+package com.devjones.web.javaAlgo.bitMask;
 
 /**
  * << 연산자 예제

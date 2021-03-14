@@ -1,4 +1,4 @@
-package com.devjones.web.javaAlgo;
+package com.devjones.web.javaAlgo.bitMask;
 
 public class BitMask {
 
@@ -31,20 +31,22 @@ public class BitMask {
 		// 원소의 토글
 		toppings ^= (1 << p);
 		
+		// 올리브 토핑 추가하기
+		int o = 5;
+		toppings |= (1 << o);
+		
 		// 두 집합에 대해 연산하기
 		/*
-		
-		
-		in
-		*/
+		 * int added = ( a | b );			// a와 b의 합집합
+		 * int intersection = ( a & b );	// a와 b의 교집합
+		 * int removed = ( a & ~b );		// a에서 b를 뺀 차집합
+		 * int toggled = ( a ^ b);			// a와 b중 하나에만 포함된 원소들의 집합
+		 * 
+		 */
 		
 		// 집합의 크기 구하기
 		Integer.bitCount(toppings);	// 자바에서 제공함-_-;
 		System.out.println(bitCount(toppings));
-		
-		// 올리브 토핑 추가하기
-		int o = 5;
-		toppings |= (1 << o);
 		
 		// 최소 원소 찾기
 		System.out.println(toppings);
