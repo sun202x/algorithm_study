@@ -37,6 +37,7 @@ class ArrayList {
 			doubling();
 		}
 		data[this.index] = obj;
+		this.index++;
 	}
 	
 	private void doubling() {
