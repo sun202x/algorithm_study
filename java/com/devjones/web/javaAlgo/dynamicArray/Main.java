@@ -44,7 +44,7 @@ class ArrayList {
 		this.size = this.size * 2;
 		Object[] newData = new Object[this.size];
 		for(int i = 0; i < data.length; i++) {
-			newData[i] = data[i];
+		 	newData[i] = data[i];
 		}
 		this.data = newData;
 	}
