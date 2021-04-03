@@ -1,5 +1,7 @@
 package com.devjones.web.javaAlgo.dynamicArray;
 
+import java.util.List;
+
 public class Main {
 
 	public static void main(String[] args) throws Exception {
@@ -8,15 +10,22 @@ public class Main {
 		al.add("1");
 		al.add("2");
 		al.add("3");
-		al.add("4");
-		al.add("5");
-		al.add("6");
-		al.add("7");
-		al.add("8");
-		al.add("9");
-		System.out.println(al.get(5));
-		al.remove(5);
-		System.out.println(al.get(5));
+		
+		System.out.println("사이즈 : " + al.size());
+//		al.remove(0);
+//		al.add("4");
+//		al.add("5");
+//		al.add("6");
+//		al.add("7");
+//		al.add("8");
+//		al.add("9");
+//		System.out.println(al.get(5));
+//		al.remove(5);
+//		System.out.println(al.get(5));
+		
+//		List<String> list = new java.util.ArrayList<String>();
+//		
+//		list.size();
 	}
 }
 
@@ -43,6 +52,7 @@ class ArrayList {
 	private void doubling() {
 		this.size = this.size * 2;
 		Object[] newData = new Object[this.size];
+		System.out.println("data.length : " + data.length);
 		for(int i = 0; i < data.length; i++) {
 		 	newData[i] = data[i];
 		}
@@ -50,7 +60,7 @@ class ArrayList {
 	}
 	
 	public Object get(int i) throws Exception {
-		if(i > this.index -1) {
+		if(i > this.index -1) {		// this.index -1 인 이유는 add 메소드에서 this.index++을 가장 마지막에 해줬기 때문
 			throw new Exception("ArrayIndexOutOfBound");
 		}else if(i < 0) {
 			throw new Exception("Negative Value");
@@ -64,10 +74,14 @@ class ArrayList {
 		}else  if(i < 0) {
 			throw new Exception("Negative Value");
 		}
-		
+		System.out.println(this.data.length);
 		for(int x = i; x < this.data.length - 1; x++) {
 			data[x] = data[x + 1];
 		}
 		this.index--;
+	}
+	
+	public int size() {
+		return this.index;
 	}
 }
