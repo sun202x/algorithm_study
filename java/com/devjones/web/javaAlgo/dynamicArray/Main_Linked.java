@@ -11,6 +11,8 @@ public class Main_Linked {
 		head.retrieve();
 		head.delete(2);
 		head.retrieve();
+		head.delete(2);
+		head.retrieve();
 	}
 }
 
@@ -26,8 +28,16 @@ class Node {
 		Node end = new Node(d);		// 마지막에 넣을 Node
 		Node n = this;				// 포인터. 첫번째 Node?
 
+		System.out.println("end.data : " + end.data);
+		System.out.println("n.data : " + n.data);
+		
 		System.out.println("end.next : " + end.next);
 		System.out.println("n.next : " + n.next);
+		
+		System.out.println("end : " + end);
+		System.out.println("n : " + n);
+		
+		System.out.println();
 		
 		while(n.next != null) {		// 마지막 Node를 찾자.
 			n = n.next;
@@ -37,6 +47,13 @@ class Node {
 	
 	void delete(int d) {
 		Node n = this;
+		
+		System.out.println();
+		System.out.println("n.data : " + n.data);
+		System.out.println("n.next : " + n.next);
+		System.out.println("n.next.net : " + n.next.next);
+		System.out.println("n : " + n);
+		System.out.println();
 		
 		while(n.next != null) {
 			if(n.next.data == d) {
