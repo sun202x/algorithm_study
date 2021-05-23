@@ -42,4 +42,21 @@ class RMQ {
 	public int query(int left, int right) {
 		return query(left, right, 1, 0, n-1);
 	}
+	
+	private int update(int index, int newValue, int node, int nodeLeft, int nodeRight) {
+		if(index < nodeLeft || nodeRight < index) return rangeMin[node];
+		
+		if(nodeLeft == nodeRight) return rangeMin[node] = newValue;
+		
+		int mid = (nodeLeft + nodeRight) / 2;
+		
+		return rangeMin[node] = Math.min(
+				update(index, newValue, node*2, nodeLeft, mid),
+				update(index, newValue, node*2+1, mid+1, nodeRight)
+				);
+	}
+	
+	public int update(int index, int newValue) {
+		return update(index, newValue, 1, 0, n-1);
+	}
 }
