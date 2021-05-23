@@ -5,9 +5,7 @@ public class RMQTest {
 		int[] array = {1, 2, 1, 2, 3, 1, 2, 4};
 		RMQ rmq = new RMQ(array);
 		
-		for(int i = 0; i < rmq.rangeMin.length; i++) {
-			System.out.println(i + "번째 : " + rmq.rangeMin[i]);
-		}
+		System.out.println(rmq.query(6, 8));
 	}
 }
 
@@ -29,5 +27,19 @@ class RMQ {
 		int rightMin = init(array, mid + 1, right, node * 2 + 1);
 		
 		return rangeMin[node] = Math.min(leftMin, rightMin);
+	}
+	
+	private int query(int left, int right, int node, int nodeLeft, int nodeRight) {
+		if(right < nodeLeft || nodeRight < left) return Integer.MAX_VALUE;
+		
+		if(left <= nodeLeft && nodeRight <= right) return rangeMin[node];
+		
+		int mid = (nodeLeft + nodeRight) / 2;
+		
+		return Math.min(query(left, right, node*2, nodeLeft, mid), query(left, right, node*2+1, mid+1, nodeRight));
+	}
+	
+	public int query(int left, int right) {
+		return query(left, right, 1, 0, n-1);
 	}
 }
